@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Auto</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        form { max-width: 400px; }
+        label { display: block; margin: 10px 0 5px; }
+        input { width: 100%; padding: 8px; margin-bottom: 10px; }
+        button { background-color: #007BFF; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        .btn { margin-top: 10px; display: inline-block; padding: 8px 15px; text-decoration: none; color: white; background-color: #6c757d; }
+        .btn:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+    <h1>Editar Auto</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="marca">Marca:</label>
+        <input type="text" name="marca" id="marca" value="{{ auto.marca }}" required>
+
+        <label for="modelo">Modelo:</label>
+        <input type="text" name="modelo" id="modelo" value="{{ auto.modelo }}" required>
+
+        <label for="año">Año:</label>
+        <input type="number" name="año" id="año" value="{{ auto.año }}" required>
+
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color" value="{{ auto.color }}" required>
+
+        <button type="submit">Actualizar</button>
+    </form>
+
+    <a href="/" class="btn">Volver al listado</a>
+</body>
+</html>
